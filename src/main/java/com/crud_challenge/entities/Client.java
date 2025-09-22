@@ -36,7 +36,7 @@ public class Client {
 		this.birthDate = birthDate;
 		this.children = children;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
