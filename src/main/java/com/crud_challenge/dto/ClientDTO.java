@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.crud_challenge.entities.Client;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -19,6 +20,8 @@ public class ClientDTO {
 	
 	@Positive(message = "O valor deve ser positivo")
 	private Double income;
+	
+	@PastOrPresent
 	private LocalDate birthDate;
 	private Integer children;
 	
