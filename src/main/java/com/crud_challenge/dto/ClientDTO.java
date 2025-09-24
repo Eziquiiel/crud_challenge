@@ -4,17 +4,26 @@ import java.time.LocalDate;
 
 import com.crud_challenge.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class ClientDTO {
 
 	private Long id;
+	
+	@Size(min = 3, max = 80, message = "Nome precisa ter de 3 a 80 caracteres")
+	@NotBlank(message = "Campo requerido")
 	private String name;
 	private String cpf;
+	
+	@Positive(message = "O valor deve ser positivo")
 	private Double income;
 	private LocalDate birthDate;
 	private Integer children;
 	
-	public ClientDTO () {}
-
+	public ClientDTO() {}
+	
 	public ClientDTO(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
 		this.id = id;
 		this.name = name;

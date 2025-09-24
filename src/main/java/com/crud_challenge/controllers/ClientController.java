@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud_challenge.dto.ClientDTO;
 import com.crud_challenge.services.ClientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value="/clients")
 public class ClientController {
@@ -36,12 +38,12 @@ public class ClientController {
 	}	
 	
 	@PostMapping
-	public ClientDTO insert(@RequestBody ClientDTO dto) {
+	public ClientDTO insert(@Valid @RequestBody ClientDTO dto) {
 		return  dto = service.insert(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO dto) {
+	public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid  @RequestBody ClientDTO dto) {
 	    dto = service.update(id, dto);
 		return ResponseEntity.ok(dto);
 	}
